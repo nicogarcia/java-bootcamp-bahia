@@ -29,6 +29,7 @@ public class Main {
 		//IPaymentMethod paymentMethod = new PaypalPayment("email", "1348923984");
 
 		// Modify first item price
+		// (I don't know any ID, so I choose the first in this unconventional way just for testing)
 		for (Item item : itemsRepo.all()) {
 			item.setPrice(80);
 			itemsRepo.save(item);

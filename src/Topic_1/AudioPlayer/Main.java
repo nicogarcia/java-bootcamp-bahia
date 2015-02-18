@@ -12,7 +12,7 @@ public class Main {
 		// Create audio player
 		IAudioPlayer audioPlayer = new MyAudioPlayer();
 
-		// Start playing => Result: No track loaded.
+		// Start playing
 		System.out.println("Command: Play");
 		audioPlayer.play();
 

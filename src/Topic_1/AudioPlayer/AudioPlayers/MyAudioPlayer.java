@@ -1,8 +1,6 @@
 package Topic_1.AudioPlayer.AudioPlayers;
 
 import Topic_1.AudioPlayer.PlayerStates.IPlayerState;
-import Topic_1.AudioPlayer.PlayerStates.PausedState;
-import Topic_1.AudioPlayer.PlayerStates.PlayingState;
 import Topic_1.AudioPlayer.PlayerStates.StoppedState;
 import Topic_1.AudioPlayer.Track;
 
@@ -10,12 +8,8 @@ public class MyAudioPlayer implements IAudioPlayer {
 	IPlayerState state;
 	Track currentTrack;
 
-	static IPlayerState playingState = new PlayingState();
-	static IPlayerState stoppedState = new StoppedState();
-	static IPlayerState pausedState = new PausedState();
-
 	public MyAudioPlayer() {
-		state = stoppedState;
+		state = StoppedState.getInstance();
 	}
 
 	@Override public void load(Track track) {

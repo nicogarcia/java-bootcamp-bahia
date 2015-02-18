@@ -51,6 +51,7 @@ public class Amount implements IDiscountable {
 	@Override public String toString() {
 		String tmp = "";
 
+		// If the amount has discount, print discount information
 		if (hasDiscount()) {
 			tmp += String.format("Original: %.2f\t\t$ %.2f\t\t%s",
 					getUndiscountedAmount(),
@@ -61,8 +62,6 @@ public class Amount implements IDiscountable {
 			tmp += String.format("$ %.2f", getAmount());
 		}
 
-		String result = String.format("Total %39s", tmp);
-
-		return result;
+		return String.format("Total %39s", tmp);
 	}
 }
