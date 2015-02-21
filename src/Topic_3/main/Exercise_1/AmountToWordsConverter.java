@@ -23,17 +23,30 @@ public class AmountToWordsConverter {
 		BigInteger integer = number.toBigInteger();
 
 		// Result buffers
-		String integer_result = "";
-		String decimal_result = String.format("%02d/100 dollars", decimals);
+		String result = "";
+		String integerResult = "";
+		String decimalResult = String.format("%02d/100 dollars", decimals);
 
 		// If there's no integer part, return decimal
 		if (integer.intValue() == 0)
-			return decimal_result;
+			return decimalResult;
 
+		// Get integer in words
+		integerResult = getIntegerInWords(integer, integerResult);
+
+		// Append decimals
+		result += integerResult + "and " + decimalResult;
+
+		// Capitalize the result
+		result = capitalizeFirstLetter(result);
+
+		return result;
+	}
+
+	private String getIntegerInWords(BigInteger integer, String integerInWords) {
 		// For each named position calculate hundreds and append position name
 		for (int i = positionNames.length - 1; i >= 0; i--) {
 			String positional = positionNames[i];
-
 
 			// Get hundreds of current named position eg. for thousands of 134.932.834 get 932
 			BigInteger pow_i_plus_1 = new BigInteger("10").pow(3 * (i + 1));
@@ -43,16 +56,9 @@ public class AmountToWordsConverter {
 			int hundredsOfPosition = remainder.divide(pow_i).intValue();
 
 			// Get the hundreds in words and append positional
-			integer_result += getHundredsInWords(hundredsOfPosition, positional);
+			integerInWords += getHundredsInWords(hundredsOfPosition, positional);
 		}
-
-		// Append decimals
-		integer_result += "and " + decimal_result;
-
-		// Capitalize the result
-		integer_result = capitalizeFirstLetter(integer_result);
-
-		return integer_result;
+		return integerInWords;
 	}
 
 	private String getHundredsInWords(int number, String positional) {
