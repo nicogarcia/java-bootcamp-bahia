@@ -5,7 +5,7 @@ import java.util.List;
 
 public class FileManager {
 
-	private RecentList<File> recentList = new RecentList<File>(15);
+	private List<File> recentList = new RecentList<File>(15);
 
 	public void openFile(String filename) {
 		File file = new File(filename);
