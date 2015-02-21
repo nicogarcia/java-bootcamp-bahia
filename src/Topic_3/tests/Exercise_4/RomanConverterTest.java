@@ -1,6 +1,6 @@
-package Topic_3.tests;
+package Topic_3.tests.Exercise_4;
 
-import Topic_3.main.RomanConverter;
+import Topic_3.main.Exercise_4.RomanConverter;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

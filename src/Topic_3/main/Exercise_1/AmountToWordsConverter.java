@@ -1,4 +1,4 @@
-package Topic_3.main;
+package Topic_3.main.Exercise_1;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

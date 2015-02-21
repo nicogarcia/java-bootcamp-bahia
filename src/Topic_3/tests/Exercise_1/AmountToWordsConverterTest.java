@@ -1,6 +1,6 @@
-package Topic_3.tests;
+package Topic_3.tests.Exercise_1;
 
-import Topic_3.main.AmountToWordsConverter;
+import Topic_3.main.Exercise_1.AmountToWordsConverter;
 import org.junit.Test;
 
 import java.math.BigDecimal;

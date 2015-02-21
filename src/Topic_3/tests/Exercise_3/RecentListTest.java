@@ -1,6 +1,6 @@
-package Topic_3.tests;
+package Topic_3.tests.Exercise_3;
 
-import Topic_3.main.RecentList;
+import Topic_3.main.Exercise_3.RecentList;
 import org.junit.Test;
 
 import java.util.Arrays;

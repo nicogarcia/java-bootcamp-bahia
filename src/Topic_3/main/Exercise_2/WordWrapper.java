@@ -1,4 +1,4 @@
-package Topic_3.main;
+package Topic_3.main.Exercise_2;
 
 import java.util.LinkedList;
 import java.util.List;

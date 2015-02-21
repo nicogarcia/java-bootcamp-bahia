@@ -1,6 +1,6 @@
-package Topic_3.tests;
+package Topic_3.tests.Exercise_2;
 
-import Topic_3.main.WordWrapper;
+import Topic_3.main.Exercise_2.WordWrapper;
 import org.junit.Test;
 
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package Topic_3.main;
+package Topic_3.main.Exercise_3;
 
 import java.util.*;
 
