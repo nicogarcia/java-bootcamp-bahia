@@ -47,7 +47,7 @@ public class AmountToWordsConverter {
 		}
 
 		// Append decimals
-		integer_result += "with " + decimal_result;
+		integer_result += "and " + decimal_result;
 
 		// Capitalize the result
 		integer_result = capitalizeFirstLetter(integer_result);

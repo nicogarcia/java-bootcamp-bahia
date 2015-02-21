@@ -30,7 +30,7 @@ public class AmountToWordsConverterTest {
 
 		String converted = new AmountToWordsConverter().getInWords(new BigDecimal(10));
 
-		assertEquals("Ten with 00/100 dollars", converted);
+		assertEquals("Ten and 00/100 dollars", converted);
 	}
 
 	@Test
@@ -38,7 +38,7 @@ public class AmountToWordsConverterTest {
 
 		String converted = new AmountToWordsConverter().getInWords(new BigDecimal(10.4));
 
-		assertEquals("Ten with 40/100 dollars", converted);
+		assertEquals("Ten and 40/100 dollars", converted);
 	}
 
 	@Test
@@ -46,7 +46,7 @@ public class AmountToWordsConverterTest {
 
 		String converted = new AmountToWordsConverter().getInWords(new BigDecimal(200));
 
-		assertEquals("Two hundred with 00/100 dollars", converted);
+		assertEquals("Two hundred and 00/100 dollars", converted);
 	}
 
 	@Test
@@ -54,7 +54,7 @@ public class AmountToWordsConverterTest {
 
 		String converted = new AmountToWordsConverter().getInWords(new BigDecimal("300.2"));
 
-		assertEquals("Three hundred with 20/100 dollars", converted);
+		assertEquals("Three hundred and 20/100 dollars", converted);
 	}
 
 	@Test
@@ -62,7 +62,7 @@ public class AmountToWordsConverterTest {
 
 		String converted = new AmountToWordsConverter().getInWords(new BigDecimal(1300.20));
 
-		assertEquals("One thousand three hundred with 20/100 dollars", converted);
+		assertEquals("One thousand three hundred and 20/100 dollars", converted);
 	}
 
 	@Test
@@ -70,7 +70,7 @@ public class AmountToWordsConverterTest {
 
 		String converted = new AmountToWordsConverter().getInWords(new BigDecimal(1311.20));
 
-		assertEquals("One thousand three hundred eleven with 20/100 dollars", converted);
+		assertEquals("One thousand three hundred eleven and 20/100 dollars", converted);
 	}
 
 	@Test
@@ -78,7 +78,7 @@ public class AmountToWordsConverterTest {
 
 		String converted = new AmountToWordsConverter().getInWords(new BigDecimal(1331.20));
 
-		assertEquals("One thousand three hundred thirty-one with 20/100 dollars", converted);
+		assertEquals("One thousand three hundred thirty-one and 20/100 dollars", converted);
 	}
 
 	@Test
@@ -86,7 +86,7 @@ public class AmountToWordsConverterTest {
 
 		String converted = new AmountToWordsConverter().getInWords(new BigDecimal(30405371.35));
 
-		assertEquals("Thirty million four hundred five thousand three hundred seventy-one with 35/100 dollars", converted);
+		assertEquals("Thirty million four hundred five thousand three hundred seventy-one and 35/100 dollars", converted);
 	}
 
 	@Test
@@ -94,7 +94,7 @@ public class AmountToWordsConverterTest {
 
 		String converted = new AmountToWordsConverter().getInWords(new BigDecimal("32934578490.67"));
 
-		assertEquals("Thirty-two billion nine hundred thirty-four million five hundred seventy-eight thousand four hundred ninety with 67/100 dollars", converted);
+		assertEquals("Thirty-two billion nine hundred thirty-four million five hundred seventy-eight thousand four hundred ninety and 67/100 dollars", converted);
 	}
 
 	@Test
@@ -102,6 +102,6 @@ public class AmountToWordsConverterTest {
 
 		String converted = new AmountToWordsConverter().getInWords(new BigDecimal("7032934578490.67"));
 
-		assertEquals("Seven trillion thirty-two billion nine hundred thirty-four million five hundred seventy-eight thousand four hundred ninety with 67/100 dollars", converted);
+		assertEquals("Seven trillion thirty-two billion nine hundred thirty-four million five hundred seventy-eight thousand four hundred ninety and 67/100 dollars", converted);
 	}
 }
