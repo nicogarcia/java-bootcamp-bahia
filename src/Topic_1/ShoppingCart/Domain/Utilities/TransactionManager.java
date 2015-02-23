@@ -1,14 +1,17 @@
 package Topic_1.ShoppingCart.Domain.Utilities;
 
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+
 /**
  * Manages the ID of the transactions
  */
 public class TransactionManager {
 
-	private static long transactionCounter = 0;
+	private static AtomicLong transactionCounter = new AtomicLong(0);
 
 	public static long getNextId() {
-		return transactionCounter++;
+		return transactionCounter.addAndGet(1);
 	}
 
 }
