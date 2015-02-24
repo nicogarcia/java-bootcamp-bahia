@@ -5,8 +5,8 @@ import Topic_1.AudioPlayer.PlayerStates.StoppedState;
 import Topic_1.AudioPlayer.Track;
 
 public class MyAudioPlayer implements IAudioPlayer {
-	IPlayerState state;
-	Track currentTrack;
+	private IPlayerState state;
+	private Track currentTrack;
 
 	public MyAudioPlayer() {
 		state = StoppedState.getInstance();

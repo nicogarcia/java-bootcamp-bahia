@@ -4,7 +4,7 @@ import Topic_1.AudioPlayer.AudioPlayers.IAudioPlayer;
 
 public class PlayingState implements IPlayerState {
 
-	static PlayingState instance = new PlayingState();
+	private static PlayingState instance = new PlayingState();
 
 	public static PlayingState getInstance() {
 		return instance;

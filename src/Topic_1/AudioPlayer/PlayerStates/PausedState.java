@@ -4,7 +4,7 @@ import Topic_1.AudioPlayer.AudioPlayers.IAudioPlayer;
 
 public class PausedState implements IPlayerState {
 
-	static PausedState instance = new PausedState();
+	private static PausedState instance = new PausedState();
 
 	public static PausedState getInstance() {
 		return instance;
