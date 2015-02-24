@@ -2,6 +2,8 @@ package Topic_1.ShoppingCart;
 
 import Topic_1.ShoppingCart.DataAccess.Repositories.ItemsRepo;
 import Topic_1.ShoppingCart.DataAccess.Repositories.OffersRepo;
+import Topic_1.ShoppingCart.Domain.Discounts.DiscountManager;
+import Topic_1.ShoppingCart.Domain.Discounts.IDiscountManager;
 import Topic_1.ShoppingCart.Domain.Entities.*;
 import Topic_1.ShoppingCart.Domain.Events.NotificationLogger;
 import Topic_1.ShoppingCart.Domain.PaymentMethods.CreditCardPayment;
@@ -18,10 +20,11 @@ public class Main {
 		// Simulate user login
 		UserManager.login(new User("nico", "pass"));
 
-		// Initialize repos and event logger
+		// Initialize repos, discount manager and event logger (To be replaced with DI)
 		IEventLogger eventLogger = new NotificationLogger();
 		ItemsRepo itemsRepo = initializeItemsRepo(eventLogger);
 		OffersRepo offersRepo = initializeOffersRepo(eventLogger);
+		IDiscountManager discountManager = new DiscountManager();
 
 		// Setup payment method
 		IPaymentMethod paymentMethod = new CreditCardPayment("email", "1348923984");
@@ -48,6 +51,7 @@ public class Main {
 				cart,
 				UserManager.getCurrentUser(),
 				paymentMethod,
+				discountManager,
 				eventLogger
 		);
 

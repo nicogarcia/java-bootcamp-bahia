@@ -14,25 +14,29 @@ import java.util.Map;
 /**
  * Manages the bindings between the payment method and discount applied.
  */
-public class DiscountManager {
+public class DiscountManager implements IDiscountManager {
 
-	static Map<Class<? extends IPaymentMethod>, Class<? extends IDiscount>> discountByPaymentMap =
+	private Map<Class<? extends IPaymentMethod>, Class<? extends IDiscount>> discountByPaymentMap =
 			new HashMap<Class<? extends IPaymentMethod>, Class<? extends IDiscount>>(5);
 
-	static {
+	public DiscountManager(){
 		loadBindings();
 	}
 
-	public static void loadBindings() {
+	public void loadBindings() {
 		bind(CashPayment.class, CashDiscount.class);
 		bind(CreditCardPayment.class, CreditCardDiscount.class);
 		bind(PaypalPayment.class, PaypalDiscount.class);
 	}
 
+	private void bind(Class<? extends IPaymentMethod> paymentType, Class<? extends IDiscount> discount) {
+		discountByPaymentMap.put(paymentType, discount);
+	}
+
 	/**
 	 * Returns the discount type according to the payment type
 	 */
-	public static IDiscount getDiscount(IPaymentMethod paymentType) {
+	public IDiscount getDiscount(IPaymentMethod paymentType) {
 		IDiscount discount = null;
 		try {
 			discount = discountByPaymentMap.get(paymentType.getClass()).newInstance();
@@ -45,7 +49,4 @@ public class DiscountManager {
 		return discount;
 	}
 
-	public static void bind(Class<? extends IPaymentMethod> paymentType, Class<? extends IDiscount> discount) {
-		discountByPaymentMap.put(paymentType, discount);
-	}
 }

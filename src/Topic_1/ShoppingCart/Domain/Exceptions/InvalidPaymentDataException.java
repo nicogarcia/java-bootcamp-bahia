@@ -7,7 +7,7 @@ import Topic_1.ShoppingCart.Domain.PaymentMethods.IPaymentMethod;
  */
 public class InvalidPaymentDataException extends IllegalArgumentException {
 
-	IPaymentMethod paymentType;
+	private IPaymentMethod paymentType;
 
 	public InvalidPaymentDataException(IPaymentMethod paymentType) {
 		this.paymentType = paymentType;

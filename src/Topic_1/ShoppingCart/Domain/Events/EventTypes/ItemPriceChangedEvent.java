@@ -5,7 +5,7 @@ import Topic_1.ShoppingCart.Domain.Events.Event;
 
 public class ItemPriceChangedEvent extends Event {
 
-	Item item;
+	private Item item;
 
 	public ItemPriceChangedEvent(Item item) {
 		this.item = item;

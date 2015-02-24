@@ -8,8 +8,8 @@ import Topic_1.ShoppingCart.Domain.Discounts.IDiscountable;
  */
 public class Amount implements IDiscountable {
 
-	double amount;
-	DiscountInfo discountInfo;
+	private double amount;
+	private DiscountInfo discountInfo;
 
 	public Amount(double amount) {
 		this.amount = amount;

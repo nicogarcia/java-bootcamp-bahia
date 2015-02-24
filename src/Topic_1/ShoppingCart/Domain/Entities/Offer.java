@@ -7,7 +7,7 @@ import java.util.Collection;
  * Represents an offer made over some items
  */
 public class Offer extends CartItem {
-	Collection<CartItem> cartItems;
+	private Collection<CartItem> cartItems;
 
 	public Offer(String name, double price) {
 		super(name, price);

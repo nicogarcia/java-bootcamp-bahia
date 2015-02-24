@@ -5,7 +5,7 @@ package Topic_1.ShoppingCart.Domain.Utilities;
  */
 public class IdManager {
 
-	static int id = 0;
+	private static int id = 0;
 
 	public static int nextId() {
 		return id++;

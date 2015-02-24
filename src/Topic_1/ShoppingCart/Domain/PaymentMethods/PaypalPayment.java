@@ -1,8 +1,8 @@
 package Topic_1.ShoppingCart.Domain.PaymentMethods;
 
 public class PaypalPayment implements IPaymentMethod {
-	String email;
-	String password;
+	private String email;
+	private String password;
 
 	public PaypalPayment(String email, String password) {
 		this.email = email;

@@ -4,9 +4,9 @@ import Topic_1.ShoppingCart.Domain.Events.IEvent;
 
 public class Notification {
 	int id;
-	User user;
-	boolean seen;
-	IEvent event;
+	private User user;
+	private boolean seen;
+	private IEvent event;
 
 	public Notification(User user, IEvent event) {
 		this.user = user;

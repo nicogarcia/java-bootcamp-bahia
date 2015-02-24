@@ -18,6 +18,8 @@ public class OffersRepo extends GenericRepository<Offer> implements IRepository<
 
 	@Override public void save(Offer element) {
 		elements.put(element.getId(), element);
-		eventLogger.log(new OfferPriceChangedEvent(element));
+
+		if (element.isDirtyPrice())
+			eventLogger.log(new OfferPriceChangedEvent(element));
 	}
 }

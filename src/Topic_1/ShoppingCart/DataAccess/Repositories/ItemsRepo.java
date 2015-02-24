@@ -18,6 +18,8 @@ public class ItemsRepo extends GenericRepository<Item> implements IRepository<It
 
 	@Override public void save(Item element) {
 		elements.put(element.getId(), element);
-		eventLogger.log(new ItemPriceChangedEvent(element));
+
+		if (element.isDirtyPrice())
+			eventLogger.log(new ItemPriceChangedEvent(element));
 	}
 }

@@ -9,12 +9,12 @@ import Topic_1.ShoppingCart.Domain.Utilities.IdManager;
  */
 public abstract class CartItem implements IDiscountable, Comparable<CartItem> {
 
-	int id;
-	String name;
-	double price;
-	DiscountInfo discountInfo;
+	protected int id;
+	protected String name;
+	protected double price;
+	protected DiscountInfo discountInfo;
 
-	boolean dirtyPrice = false;
+	protected boolean dirtyPrice = false;
 
 	public CartItem(String name, double price) {
 		this.id = IdManager.nextId();
@@ -64,4 +64,7 @@ public abstract class CartItem implements IDiscountable, Comparable<CartItem> {
 		return id;
 	}
 
+	public boolean isDirtyPrice() {
+		return dirtyPrice;
+	}
 }

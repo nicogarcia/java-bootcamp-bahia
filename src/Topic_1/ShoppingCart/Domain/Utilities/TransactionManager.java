@@ -1,6 +1,5 @@
 package Topic_1.ShoppingCart.Domain.Utilities;
 
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**

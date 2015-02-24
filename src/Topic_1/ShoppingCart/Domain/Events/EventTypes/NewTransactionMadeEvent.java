@@ -5,7 +5,7 @@ import Topic_1.ShoppingCart.Domain.Entities.Transaction;
 
 public class NewTransactionMadeEvent extends Event {
 
-	Transaction transaction;
+	private Transaction transaction;
 
 	public NewTransactionMadeEvent(Transaction transaction) {
 		this.transaction = transaction;

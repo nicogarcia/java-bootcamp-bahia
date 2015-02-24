@@ -6,8 +6,8 @@ package Topic_1.ShoppingCart.Domain.Discounts;
  */
 public class DiscountInfo {
 
-	String description;
-	IDiscountFunction discountFunction;
+	private String description;
+	private IDiscountFunction discountFunction;
 
 	public DiscountInfo(String description, IDiscountFunction discountFunction) {
 		this.description = description;

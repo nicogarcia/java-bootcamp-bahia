@@ -8,8 +8,8 @@ import java.util.Map;
 
 public abstract class GenericRepository<T> implements IRepository<T> {
 
-	Map<Integer, T> elements;
-	IEventLogger eventLogger;
+	protected Map<Integer, T> elements;
+	protected IEventLogger eventLogger;
 
 	public GenericRepository(IEventLogger eventLogger) {
 		this.elements = new HashMap<Integer, T>();

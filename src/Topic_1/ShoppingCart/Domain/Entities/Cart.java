@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Cart {
 
-	protected List<CartItem> items;
-	protected Amount amount;
+	private List<CartItem> items;
+	private Amount amount;
 
 	public Cart() {
 		items = new ArrayList<CartItem>();

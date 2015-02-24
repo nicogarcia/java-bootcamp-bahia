@@ -4,8 +4,8 @@ import Topic_1.ShoppingCart.Domain.Entities.User;
 
 public class UserManager {
 
-	static User loggedInUser;
-	static User businessManagerUser = new User("admin", "admin");
+	private static User loggedInUser;
+	private static User businessManagerUser = new User("admin", "admin");
 
 	public static boolean login(User user) {
 		// TODO: Dummy login, not validating user

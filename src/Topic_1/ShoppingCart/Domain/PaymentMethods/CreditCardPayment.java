@@ -2,8 +2,8 @@ package Topic_1.ShoppingCart.Domain.PaymentMethods;
 
 public class CreditCardPayment implements IPaymentMethod {
 
-	String name;
-	String creditCardNumber;
+	private String name;
+	private String creditCardNumber;
 
 	public CreditCardPayment(String name, String creditCardNumber) {
 		this.name = name;
