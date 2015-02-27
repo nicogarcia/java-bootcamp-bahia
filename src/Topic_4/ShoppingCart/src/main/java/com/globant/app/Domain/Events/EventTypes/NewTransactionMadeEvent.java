@@ -15,4 +15,12 @@ public class NewTransactionMadeEvent extends Event {
 		// TODO: Add more information to the notification
 		return String.format("[%s] New transaction made", this.date);
 	}
+
+	public Transaction getTransaction() {
+		return transaction;
+	}
+
+	public void setTransaction(Transaction transaction) {
+		this.transaction = transaction;
+	}
 }

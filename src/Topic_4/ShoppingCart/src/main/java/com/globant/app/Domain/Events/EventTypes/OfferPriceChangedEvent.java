@@ -14,4 +14,12 @@ public class OfferPriceChangedEvent extends Event {
 	@Override public String getDescription() {
 		return "[" + this.date + "]\nOffer price changed:\n" + offer.toString();
 	}
+
+	public Offer getOffer() {
+		return offer;
+	}
+
+	public void setOffer(Offer offer) {
+		this.offer = offer;
+	}
 }

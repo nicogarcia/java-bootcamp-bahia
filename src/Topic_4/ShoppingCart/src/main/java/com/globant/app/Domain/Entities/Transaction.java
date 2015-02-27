@@ -66,4 +66,43 @@ public class Transaction {
 		}
 	}
 
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public IPaymentMethod getPaymentType() {
+		return paymentType;
+	}
+
+	public void setPaymentType(IPaymentMethod paymentType) {
+		this.paymentType = paymentType;
+	}
+
+	public IDiscountManager getDiscountManager() {
+		return discountManager;
+	}
+
+	public void setDiscountManager(IDiscountManager discountManager) {
+		this.discountManager = discountManager;
+	}
+
+	public IEventLogger getEventLogger() {
+		return eventLogger;
+	}
+
+	public void setEventLogger(IEventLogger eventLogger) {
+		this.eventLogger = eventLogger;
+	}
 }

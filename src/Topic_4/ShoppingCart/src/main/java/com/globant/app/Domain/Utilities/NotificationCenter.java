@@ -21,7 +21,7 @@ public class NotificationCenter {
 
 	public static void addNotification(Notification notification) {
 		if (usersNotifications.get(notification.getUser()) == null) {
-			usersNotifications.put(notification.getUser(), new LinkedList());
+			usersNotifications.put(notification.getUser(), new LinkedList<Notification>());
 		}
 
 		usersNotifications.get(notification.getUser()).add(notification);

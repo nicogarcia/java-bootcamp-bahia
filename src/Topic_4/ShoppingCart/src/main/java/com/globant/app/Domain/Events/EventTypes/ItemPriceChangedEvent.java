@@ -14,4 +14,12 @@ public class ItemPriceChangedEvent extends Event {
 	@Override public String getDescription() {
 		return "[" + this.date + "]\nItem price changed: " + item.toString();
 	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
+	}
 }

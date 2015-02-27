@@ -14,4 +14,12 @@ public class NewOfferAddedEvent extends Event {
 	public String getDescription() {
 		return "[" + this.date + "]\nNew offer added:\n" + item.toString();
 	}
+
+	public Offer getItem() {
+		return item;
+	}
+
+	public void setItem(Offer item) {
+		this.item = item;
+	}
 }
