@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS courses (
   id            INT         NOT NULL UNIQUE,
   name          VARCHAR(30) NOT NULL,
   hours_by_week INT         NOT NULL,
-  teacher_id    INT,
+  teacher_id    INT         NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (teacher_id) REFERENCES teachers (id)
 )
