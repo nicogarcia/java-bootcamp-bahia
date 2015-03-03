@@ -1,5 +1,6 @@
 package com.globant.app.actuator.domain.entities;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,13 +10,13 @@ public class Meeting extends Identifiable{
 
 	private List<Room> rooms;
 	private List<Attendee> attendees;
-	// TODO: Add time slot
+	private Time start;
+	private Time end;
 
 	public Meeting() {
 		this.rooms = new ArrayList<Room>();
 		this.attendees = new ArrayList<Attendee>();
 	}
-
 
 	public String getName() {
 		return name;
@@ -41,4 +42,19 @@ public class Meeting extends Identifiable{
 		this.attendees = attendees;
 	}
 
+	public Time getStart() {
+		return start;
+	}
+
+	public void setStart(Time start) {
+		this.start = start;
+	}
+
+	public Time getEnd() {
+		return end;
+	}
+
+	public void setEnd(Time end) {
+		this.end = end;
+	}
 }

@@ -29,6 +29,11 @@ public class MeetingValidator implements IMeetingValidator{
 	@Override public void validate(Object object, Errors errors) {
 		Meeting meeting = (Meeting) object;
 
+		// Validate time slot
+		if(meeting.getStart().compareTo(meeting.getEnd()) > 0)
+			errors.rejectValue("start", "Start time is greater than end time");
+
+		// Validate rooms
 		List<Room> validatedRooms = new ArrayList<Room>();
 
 		for (Room room : meeting.getRooms()) {
@@ -39,6 +44,9 @@ public class MeetingValidator implements IMeetingValidator{
 				validatedRooms.add(repoRoom);
 		}
 
+		meeting.setRooms(validatedRooms);
+
+		// Validate attendees
 		List<Attendee> validatedAttendees = new ArrayList<Attendee>();
 
 		for (Attendee attendee : meeting.getAttendees()) {
@@ -49,7 +57,6 @@ public class MeetingValidator implements IMeetingValidator{
 				validatedAttendees.add(repoAttendee);
 		}
 
-		meeting.setRooms(validatedRooms);
 		meeting.setAttendees(validatedAttendees);
 	}
 }

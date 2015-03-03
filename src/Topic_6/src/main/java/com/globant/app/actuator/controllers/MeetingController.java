@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import javax.validation.Valid;
 import java.util.Collection;
 
 @Controller
+@Component
 @RequestMapping("/meetings")
 public class MeetingController {
 
@@ -30,7 +32,7 @@ public class MeetingController {
 		binder.setValidator(meetingValidator);
 	}
 
-	@RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public Meeting create(@RequestBody @Valid Meeting meeting) {
 		Meeting newMeeting = meetingService.create(meeting);
@@ -53,6 +55,17 @@ public class MeetingController {
 			return new ResponseEntity<Meeting>(HttpStatus.NOT_FOUND);
 
 		return new ResponseEntity<Meeting>(meeting, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "", method = RequestMethod.PUT)
+	@ResponseBody
+	public ResponseEntity<Void> update(@RequestBody @Valid Meeting meeting) {
+		boolean updated = meetingService.update(meeting);
+
+		if (!updated)
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+
+		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
