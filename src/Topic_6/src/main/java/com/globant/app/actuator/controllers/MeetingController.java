@@ -34,13 +34,16 @@ public class MeetingController {
 
 	@RequestMapping(value = "", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public Meeting create(@RequestBody @Valid Meeting meeting) {
+	public ResponseEntity<Meeting> create(@RequestBody @Valid Meeting meeting) {
 		Meeting newMeeting = meetingService.create(meeting);
 
-		return newMeeting;
+		if (newMeeting == null)
+			return new ResponseEntity<Meeting>(HttpStatus.INTERNAL_SERVER_ERROR);
+
+		return new ResponseEntity<Meeting>(newMeeting, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "")
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	@ResponseBody
 	public Collection<Meeting> all() {
 		return meetingService.all();
