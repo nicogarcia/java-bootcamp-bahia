@@ -10,9 +10,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Entity
-public class Student implements Serializable {
-
-	private static AtomicInteger nextId = new AtomicInteger(0);
+public class Student {
 
 	@Id
 	@GeneratedValue
@@ -31,14 +29,12 @@ public class Student implements Serializable {
 	}
 
 	public Student(String firstName, String lastName, String schoolId, Date dateOfBirth){
+		super();
+
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.schoolId = schoolId;
 		this.dateOfBirth = dateOfBirth;
-	}
-
-	private static int getNextId(){
-		return nextId.incrementAndGet();
 	}
 
 	public String getFirstName() {

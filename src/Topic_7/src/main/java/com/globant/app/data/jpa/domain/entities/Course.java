@@ -29,6 +29,7 @@ public class Course {
 	}
 
 	public Course(String name, Teacher teacher, int hoursByWeek) {
+		super();
 		this.name = name;
 		this.teacher = teacher;
 		this.hoursByWeek = hoursByWeek;
