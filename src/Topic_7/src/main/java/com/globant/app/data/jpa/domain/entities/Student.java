@@ -29,7 +29,7 @@ public class Student {
 	}
 
 	public Student(String firstName, String lastName, String schoolId, Date dateOfBirth){
-		super();
+		this();
 
 		this.firstName = firstName;
 		this.lastName = lastName;
