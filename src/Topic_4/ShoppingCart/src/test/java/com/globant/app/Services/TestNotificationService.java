@@ -1,19 +1,15 @@
 package com.globant.app.Services;
 
 import com.globant.app.DataAccess.Repositories.INotificationsRepo;
-import com.globant.app.DataAccess.Repositories.Implementations.NotificationsRepo;
 import com.globant.app.Domain.Entities.User;
+import com.globant.app.Domain.Events.IEvent;
 import com.globant.app.Domain.Events.IEventLogger;
-import com.globant.app.Domain.Events.NotificationLogger;
 import com.globant.app.Domain.Utilities.IUserManager;
-import com.globant.app.Domain.Utilities.UserManager;
 import com.globant.app.Services.Implementations.NotificationService;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class TestNotificationService {
 
@@ -27,12 +23,13 @@ public class TestNotificationService {
 	public void setUp() throws Exception {
 		user = new User("nico", "messi2015");
 
-		userManager = mock(UserManager.class);
+		userManager = mock(IUserManager.class);
 		when(userManager.getCurrentUser()).thenReturn(user);
 
-		eventLogger = mock(NotificationLogger.class);
+		eventLogger = mock(IEventLogger.class);
+		doNothing().when(eventLogger).log(any(IEvent.class));
 
-		notificationsRepo = mock(NotificationsRepo.class);
+		notificationsRepo = mock(INotificationsRepo.class);
 
 		notificationService = new NotificationService(notificationsRepo, userManager);
 	}

@@ -1,14 +1,12 @@
 package com.globant.app.Services;
 
 import com.globant.app.DataAccess.Repositories.IUsersRepo;
-import com.globant.app.DataAccess.Repositories.Implementations.UsersRepo;
 import com.globant.app.Domain.Discounts.DiscountManager;
 import com.globant.app.Domain.Entities.Cart;
 import com.globant.app.Domain.Entities.User;
+import com.globant.app.Domain.Events.IEvent;
 import com.globant.app.Domain.Events.IEventLogger;
-import com.globant.app.Domain.Events.NotificationLogger;
 import com.globant.app.Domain.Utilities.IUserManager;
-import com.globant.app.Domain.Utilities.UserManager;
 import com.globant.app.Services.Implementations.CartService;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,13 +25,14 @@ public class TestCartService {
 	public void TearUp() {
 		user = new User("nico", "messi2015");
 
-		usersRepo = mock(UsersRepo.class);
+		usersRepo = mock(IUsersRepo.class);
 		when(usersRepo.get(anyInt())).thenReturn(user);
 
-		userManager = mock(UserManager.class);
+		userManager = mock(IUserManager.class);
 		when(userManager.getCurrentUser()).thenReturn(user);
 
-		eventLogger = mock(NotificationLogger.class);
+		eventLogger = mock(IEventLogger.class);
+		doNothing().when(eventLogger).log(any(IEvent.class));
 
 		cartService = new CartService(usersRepo, userManager, new DiscountManager(), eventLogger);
 	}
