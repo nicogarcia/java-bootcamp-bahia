@@ -26,7 +26,7 @@ public class Main {
 		ItemsRepo itemsRepo = initializeItemsRepo(eventLogger);
 
 		// Simulate user login
-		userManager.login(new User("nico", "pass"));
+		userManager.login("nico", "pass");
 
 		// Setup payment method
 		IPaymentMethod paymentMethod = new CreditCardPayment("email", "1348923984");

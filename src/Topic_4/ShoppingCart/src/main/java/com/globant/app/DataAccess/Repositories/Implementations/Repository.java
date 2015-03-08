@@ -25,6 +25,7 @@ public abstract class Repository<T> implements IRepository<T> {
 		return elements.get(id);
 	}
 
-
-
+	@Override public void delete(int id) {
+		elements.remove(id);
+	}
 }

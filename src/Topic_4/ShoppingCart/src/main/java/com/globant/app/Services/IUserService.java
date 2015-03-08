@@ -1,35 +1,37 @@
 package com.globant.app.Services;
 
+import com.globant.app.Domain.Entities.Photo;
 import com.globant.app.Domain.Entities.User;
 
-import java.util.List;
+import java.util.Collection;
 
 public interface IUserService {
 
 	/* CRUD Services */
-	public User getUser(String username);
 
-	public boolean addUser(String username, String password);
+	User getUser(int userId);
 
-	public boolean deleteUser(String username);
+	boolean addUser(String username, String password);
 
-	public boolean updateUser(User user);
+	boolean deleteUser(int userId);
+
+	boolean updateUser(User user);
 
 	/* Login Services */
-	public User login(String user, String password);
+	boolean login(String user, String password);
 
-	public boolean logout(String username);
+	boolean logout();
 
 	/* Friends Services */
-	public boolean setFriend(User friend);
+	boolean setFriend(User friend);
 
-	public List<User> getFriends(User user);
+	Collection<User> getFriends(User user);
 
 	/* Photos Services */
-	public boolean uploadPhoto(String photo);
+	boolean uploadPhoto(Photo photo);
 
 	/* Likes Services */
-	public List<User> getLikes(String photoLiked);
+	Collection<User> getLikes(Photo photoLiked);
 
-	public boolean setLike(User userLiked, String photoLiked);
+	boolean setLike(User userLiked, Photo photoLiked);
 }

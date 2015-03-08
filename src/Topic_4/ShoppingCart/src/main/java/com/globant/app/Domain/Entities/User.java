@@ -1,5 +1,7 @@
 package com.globant.app.Domain.Entities;
 
+import java.util.*;
+
 public class User {
 	private String username;
 	private String password;
@@ -7,7 +9,13 @@ public class User {
 	private Cart storedCart;
 	private int id;
 
+	private Set<User> friends;
+
+	private List<Photo> photos;
+
 	public User(String username, String password) {
+		friends = new HashSet<User>();
+		photos = new ArrayList<Photo>();
 		this.username = username;
 		this.password = password;
 	}
@@ -39,4 +47,13 @@ public class User {
 	public int getId() {
 		return id;
 	}
+
+	public Set<User> getFriends() {
+		return friends;
+	}
+
+	public List<Photo> getPhotos() {
+		return photos;
+	}
+
 }

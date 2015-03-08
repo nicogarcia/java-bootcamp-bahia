@@ -4,12 +4,14 @@ import java.util.Collection;
 
 public interface IRepository<T> {
 
-	public Collection<T> all();
+	Collection<T> all();
 
-	public void add(T element);
+	void add(T element);
 
-	public void save(T element);
+	void save(T element);
 
-	public T get(int id);
+	T get(int id);
+
+	void delete(int id);
 
 }

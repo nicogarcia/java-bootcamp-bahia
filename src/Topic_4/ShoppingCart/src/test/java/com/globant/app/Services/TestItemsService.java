@@ -1,7 +1,6 @@
 package com.globant.app.Services;
 
 import com.globant.app.DataAccess.Repositories.IItemsRepo;
-import com.globant.app.DataAccess.Repositories.Implementations.ItemsRepo;
 import com.globant.app.Services.Implementations.ItemService;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +15,7 @@ public class TestItemsService {
 
 	@Before
 	public void Setup() {
-		itemsRepo = mock(ItemsRepo.class);
+		itemsRepo = mock(IItemsRepo.class);
 
 		itemService = new ItemService(itemsRepo);
 	}

@@ -7,10 +7,10 @@ public class UserManager implements IUserManager {
 	private User loggedInUser;
 	private User businessManagerUser = new User("admin", "admin");
 
-	@Override public boolean login(User user) {
+	@Override public boolean login(String user, String password) {
 		// TODO: Dummy login, not validating user
 		boolean valid = true;
-		loggedInUser = user;
+		loggedInUser = new User(user, password);
 		return valid;
 	}
 
@@ -20,5 +20,9 @@ public class UserManager implements IUserManager {
 
 	@Override public User getBusinessManagerUser() {
 		return businessManagerUser;
+	}
+
+	@Override public void logout() {
+		loggedInUser = null;
 	}
 }
