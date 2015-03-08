@@ -34,7 +34,7 @@ public class HighSchoolPreparedStatements {
 		);
 
 		getStudentStatement = connection.prepareStatement(
-				"SELECT * FROM students WHERE id = ?"
+				"SELECT students.id, students.first_name, students.last_name, students.school_id, students.date_of_birth FROM students WHERE id = ?"
 		);
 	}
 

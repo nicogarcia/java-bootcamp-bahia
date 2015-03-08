@@ -93,5 +93,6 @@ public class Main {
 					random.nextInt(6) + 4
 			);
 		}
+
 	}
 }

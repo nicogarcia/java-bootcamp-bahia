@@ -36,9 +36,10 @@ public class HighSchoolQueries {
 	public static List<Student> getStudents(Course course) throws SQLException {
 
 		PreparedStatement getStudents = connection.prepareStatement("" +
-				"SELECT * FROM (" +
-				"	SELECT student_id AS id FROM courses_students WHERE course_id = ?" +
-				") AS student_ids NATURAL JOIN students ORDER BY first_name DESC ");
+				"SELECT students.id, students.first_name, students.last_name, students.school_id, students.date_of_birth " +
+				"FROM courses_students INNER JOIN students ON students.id = courses_students.student_id " +
+				"WHERE  courses_students.course_id = ? " +
+				"ORDER BY first_name DESC ");
 
 		getStudents.setInt(1, course.getId());
 
@@ -55,9 +56,10 @@ public class HighSchoolQueries {
 	public static List<CourseNote> getCoursesNotes(Student student) throws SQLException {
 
 		PreparedStatement getCoursesNotes = connection.prepareStatement("" +
-						"SELECT * FROM(" +
-						"SELECT course_id AS id, final_exam FROM courses_students WHERE student_id = ?" +
-						") AS course_with_note NATURAL JOIN courses ORDER BY final_exam DESC, name DESC"
+						"SELECT courses.id, courses.name, courses.hours_by_week, courses_students.final_exam " +
+						"FROM courses_students INNER JOIN courses ON courses_students.course_id = courses.id " +
+						"WHERE courses_students.student_id = ? " +
+						"ORDER BY courses_students.final_exam DESC, courses.name DESC"
 		);
 
 		getCoursesNotes.setInt(1, student.getId());
