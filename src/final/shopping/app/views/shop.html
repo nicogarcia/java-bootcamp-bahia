@@ -1,0 +1,107 @@
+<section ng-controller="ShopCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <h2>Buscar</h2>
+
+                    <div class="panel-group ">
+                        <form class="form-inline" ng-submit="search(name)">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Nombre de producto"
+                                       ng-model="name"/>
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" ng-click="search(name)"><i
+                                        class="fa fa-search"></i>
+                                </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <h2>Categorias</h2>
+
+                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+                        <div class="panel panel-default" ng-repeat="category in categories">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><a href="" ng-click="searchByCategory(category)">{{
+                                    category.name }}</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/category-productsr-->
+                </div>
+            </div>
+
+            <div class="col-sm-9 padding-right">
+                <div class="features_items"><!--features_items-->
+
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2 class="title text-center">Ofertas</h2>
+                        </div>
+
+                        <div class="col-sm-3 animated-item" ng-repeat="offer in offers">
+                            <div class="offer-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img ng-src="images/shop/categories/{{ offer.category.imageName }}" alt=""/>
+
+                                        <h2>$ {{ offer.price }}</h2>
+
+                                        <p>{{ offer.name }}</p>
+
+                                        <p>Cantidad: {{ getCartOffer(offer).quantity || 0 }}</p>
+                                        <a ng-click="addOfferToCart(offer)"
+                                           class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Añadir</a>
+                                    </div>
+                                    <img src="images/home/sale.png" class="new" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 text-center text-uppercase" ng-if="offers.length == 0">
+                            <p class="not_found">No se encontraron ofertas</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2 class="title text-center">Productos</h2>
+                        </div>
+
+                        <div class="col-sm-3 animated-item" ng-repeat="product in products">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img ng-src="images/shop/categories/{{ product.category.imageName }}" alt=""/>
+
+                                        <h4 class="product_name">{{ product.name }}</h4>
+
+                                        <h2>$ {{ product.price }}</h2>
+
+                                        <p>Cantidad: {{ getCartProduct(product).quantity || 0 }}</p>
+                                        <a ng-click="addProductToCart(product)"
+                                           class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Añadir</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 text-center text-uppercase" ng-if="products.length == 0">
+                            <p class="not_found">No se encontraron productos</p>
+                        </div>
+                    </div>
+                </div>
+                <!--features_items-->
+            </div>
+        </div>
+        <div class="common-modal modal fade" id="common-Modal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-content">
+                <ul class="list-inline item-details">
+                    <li><a href="http://themifycloud.com">ThemifyCloud</a></li>
+                    <li><a href="http://themescloud.org">ThemesCloud</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

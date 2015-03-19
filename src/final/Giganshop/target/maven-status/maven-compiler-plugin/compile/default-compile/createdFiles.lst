@@ -1,0 +1,3 @@
+com/globant/app/domain/exceptions/CustomerDoesNotHaveACartException.class
+com/globant/app/domain/exceptions/OrderAlreadyPaidException.class
+com/globant/app/domain/exceptions/OrderNotFoundException.class
